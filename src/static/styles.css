@@ -622,6 +622,7 @@ footer {
 #user-status {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 #user-info {
@@ -666,9 +667,158 @@ footer {
 }
 
 .announcement-banner {
-  background-color: #4caf50;
+  background: linear-gradient(90deg, #14532d, #1f7a4c);
   color: white;
-  text-align: center;
-  padding: 15px;
-  font-weight: bold;
+  padding: 10px 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(20, 83, 45, 0.25);
+}
+
+.announcement-icon {
+  font-size: 1.2rem;
+}
+
+.announcement-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+#announcement-banner-text {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.announcement-counter {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 2px 8px;
+}
+
+.announcements-modal-content {
+  max-width: 820px;
+  width: 95%;
+  padding: 22px;
+}
+
+.announcements-manage-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+}
+
+.subheading {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.announcements-manage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.announcement-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  background: #fafcff;
+}
+
+.announcement-item-message {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.announcement-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.announcement-status {
+  border-radius: 14px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.status-active {
+  color: #1b5e20;
+  background-color: #e8f5e9;
+}
+
+.status-scheduled {
+  color: #0d47a1;
+  background-color: #e3f2fd;
+}
+
+.status-expired {
+  color: #b71c1c;
+  background-color: #ffebee;
+}
+
+.announcement-item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.announcement-form textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.announcement-form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.secondary-action {
+  background: #eceff1;
+  color: #263238;
+}
+
+.danger-action {
+  background: #c62828;
+}
+
+@media (max-width: 767px) {
+  .announcement-content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .announcements-manage-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -6,6 +6,8 @@ Uma aplicação FastAPI super simples que permite aos alunos visualizar e se ins
 
 - Visualizar todas as atividades extracurriculares disponíveis
 - Inscrever-se em atividades
+- Exibir anúncios ativos no topo da página inicial
+- Gerenciar anúncios (criar, editar e excluir) para usuários autenticados
 
 ## Como começar
 
@@ -31,6 +33,11 @@ Uma aplicação FastAPI super simples que permite aos alunos visualizar e se ins
 | ------ | ----------------------------------------------------------------- | -------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Obtém todas as atividades com detalhes e número atual de participantes |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Inscreve-se em uma atividade                                         |
+| GET    | `/announcements`                                                  | Lista anúncios ativos para o banner público                          |
+| GET    | `/announcements/manage?teacher_username=<usuario>`                | Lista todos os anúncios para gestão (requer autenticação)            |
+| POST   | `/announcements?teacher_username=<usuario>&message=...&expires_at=...&starts_at=...` | Cria um anúncio (expiração obrigatória, início opcional) |
+| PUT    | `/announcements/{announcement_id}?teacher_username=<usuario>&message=...&expires_at=...&starts_at=...` | Atualiza um anúncio existente |
+| DELETE | `/announcements/{announcement_id}?teacher_username=<usuario>`     | Exclui um anúncio existente                                          |
 
 ## Modelo de Dados
 
@@ -46,4 +53,4 @@ A aplicação usa um modelo de dados simples com identificadores significativos:
    - Nome
    - Série
 
-Todos os dados são armazenados em memória, o que significa que serão resetados quando o servidor for reiniciado.
+Todos os dados são armazenados no MongoDB, incluindo atividades, professores e anúncios.
